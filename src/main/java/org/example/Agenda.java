@@ -8,13 +8,14 @@ import java.util.*;
  * @since 08/03/24
  * @see Persona
  */
-public class Agenda {
+public class Agenda implements IAgenda {
     private List<Persona> contacts; // Lista de Persona
 
     public Agenda() {
         this.contacts = new ArrayList<>();
     }
 
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Persona c : contacts) {
@@ -31,6 +32,7 @@ public class Agenda {
         }
     }
 
+    @Override
     public void removeContact(String name) {
         Iterator<Persona> it = contacts.iterator();
 
@@ -43,6 +45,7 @@ public class Agenda {
         }
     }
 
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -57,6 +60,7 @@ public class Agenda {
         }
     }
 
+    @Override
     public List<Persona> getContacts() {
         return this.contacts;
     }
